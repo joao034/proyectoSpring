@@ -1,5 +1,9 @@
 package com.cursospring.controllers;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,9 +29,19 @@ public class IndexController {
 		usuario.setApellido("Jacome");
 		usuario.setEmail("jjacome@");
 		model.addAttribute("usuario", usuario);
-		model.addAttribute("titulo", "Lista de usuarios");
+		model.addAttribute("titulo", "Perfil");
 		return "perfil";
 	}
 	
+	
+	@RequestMapping("/listausuarios")
+	public String listarUsuarios(Model model) {
+		List<Usuario> usuarios = Arrays.asList(new Usuario("julian", "alvarez", "ja@gmail.com"),
+				new Usuario("luisa", "cueva", "lc@gmail.com"));
+		model.addAttribute("titulo", "Lista de usuarios");
+		model.addAttribute("usuarios", usuarios);
+		
+		return "listausuarios";
+	}
 	
 }
