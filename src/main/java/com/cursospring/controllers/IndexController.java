@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import models.Usuario;
+
 @Controller
 @RequestMapping("/app")
 public class IndexController {
@@ -14,6 +16,16 @@ public class IndexController {
 	public String index(Model model) {
 		model.addAttribute("titulo", "Curso Spring");
 		return "index";
+	}
+	
+	@RequestMapping("/perfil")
+	public String perfil(Model model) {
+		Usuario usuario = new Usuario();
+		usuario.setNombre("Joao");
+		usuario.setApellido("Jacome");
+		model.addAttribute("usuario", usuario);
+		model.addAttribute("titulo", "Lista de usuarios");
+		return "perfil";
 	}
 	
 	
