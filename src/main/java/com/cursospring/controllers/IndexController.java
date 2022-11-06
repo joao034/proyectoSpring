@@ -23,6 +23,7 @@ public class IndexController {
 		Usuario usuario = new Usuario();
 		usuario.setNombre("Joao");
 		usuario.setApellido("Jacome");
+		usuario.setEmail("jjacome@");
 		model.addAttribute("usuario", usuario);
 		model.addAttribute("titulo", "Lista de usuarios");
 		return "perfil";
