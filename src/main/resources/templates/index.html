@@ -5,5 +5,29 @@
 </head>
 <body>
 <h1 th:text="${titulo}"></h1>
+
+<h1 th:text="${titulo}"></h1>
+
+	<div th:if="${usuarios.isEmpty()}">No existen usuarios</div>
+
+	<div th:if="${!usuarios.isEmpty()}">
+		<table border=1>
+			<thead>
+				<th>Nombre</th>
+				<th>Apellido</th>
+				<th>Email</th>
+			</thead>
+			<thbody>
+				<tr th:each="usuario : ${usuarios}">
+				<td th:text="${usuario.nombre}"></td>
+				<td th:text="${usuario.apellido}"></td>
+				<td th:text="${usuario.email}"></td>
+				
+				</tr>
+			</thbody>
+		</table>
+	</div>
+
+
 </body>
 </html>
