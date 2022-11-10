@@ -18,7 +18,7 @@ public class EjemploVariablesRuta {
 	
 	@GetMapping("/string/{texto}/{numero}")
 	public String variable(@PathVariable String texto, @PathVariable int numero, Model model) {
-		model.addAttribute("resultado", "Este es el texto " + texto);)
+		model.addAttribute("resultado", "Este es el texto " + texto + " y el numero es " + numero );
 		return "varibles/ver";
 	}
 	
