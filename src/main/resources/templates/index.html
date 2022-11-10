@@ -2,9 +2,10 @@
 <head>
 	<meta charset="UTF-8">
 	<title th:text="${titulo}"></title>
+	<link rel="stylesheet" type="text/css" th:href="@{css/style.css}">
 </head>
 <body>
-<h1 th:text="${titulo}"></h1>
+<h1 class="color-rojo" th:text="${titulo}"></h1>
 
 <h1 th:text="${titulo}"></h1>
 
@@ -27,6 +28,8 @@
 			</thbody>
 		</table>
 	</div>
+
+	<img th:src="@{/img/1.png}"></img>
 
 
 </body>
