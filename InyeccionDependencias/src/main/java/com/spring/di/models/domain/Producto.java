@@ -4,8 +4,8 @@ import org.springframework.stereotype.Component;
 
 public class Producto {
 
-	public String nombre;
-	public long precio;
+	private String nombre;
+	private long precio;
 	
 	public Producto(String nombre, long precio) {
 		this.nombre = nombre;

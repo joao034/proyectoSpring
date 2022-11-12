@@ -28,14 +28,28 @@ public class AppConfig {
 	}
 	
 	@Bean("itemsFactura")
-	public List<ItemFactura> registrarItemsOficina(){
-		Producto p1 = new Producto("PS5", 2000);
-		Producto p2  = new Producto("Camara", 800);
+	public List<ItemFactura> registrarItems(){
+		Producto p1 = new Producto("PS5", 1200);
+		Producto p2  = new Producto("Xbox", 1000);
 		
 		ItemFactura i1 = new ItemFactura(p1, 2);
 		ItemFactura i2 = new ItemFactura(p2, 3);
 		
 		return Arrays.asList(i1, i2);
+		
+	}
+	
+	@Bean("itemsFacturaOficina")
+	public List<ItemFactura> registrarItemsOficina(){
+		Producto p1 = new Producto("Monitor", 400);
+		Producto p2  = new Producto("Teclado", 50);
+		Producto p3  = new Producto("Impresora", 700);
+		
+		ItemFactura i1 = new ItemFactura(p1, 2);
+		ItemFactura i2 = new ItemFactura(p2, 3);
+		ItemFactura i3 = new ItemFactura(p3, 1);
+		
+		return Arrays.asList(i1, i2, i3);
 		
 	}
 	
