@@ -1,6 +1,7 @@
 package com.spring.di.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,6 +12,7 @@ import com.spring.di.models.services.IServicio;
 public class IndexController {
 
 	@Autowired
+	@Qualifier("miServicioSimple")
 	private IServicio servicio;
 	
 	/*public IndexController(IServicio servicio) {

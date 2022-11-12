@@ -2,7 +2,7 @@ package com.spring.di.models.services;
 
 import org.springframework.stereotype.Component;
 
-@Component("ServicioSimple")
+//@Component("ServicioSimple")
 public class MiServicio implements IServicio{
 
 	@Override
