@@ -3,6 +3,13 @@ package com.spring.di.models.domain;
 public class ItemFactura {
 
 	private Producto producto;
+	private Integer cantidad;
+	
+	public ItemFactura(Producto producto, Integer cantidad) {
+		this.producto = producto;
+		this.cantidad = cantidad;
+	}
+
 	public Producto getProducto() {
 		return producto;
 	}
@@ -15,7 +22,9 @@ public class ItemFactura {
 	public void setCantidad(Integer cantidad) {
 		this.cantidad = cantidad;
 	}
-	private Integer cantidad;
 	
+	public long calcularImporte() {
+		return producto.precio * cantidad;
+	}
 	
 }

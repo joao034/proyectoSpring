@@ -15,6 +15,7 @@ public class Factura {
 	@Autowired
 	public Cliente cliente;
 	
+	@Autowired
 	public List<ItemFactura> itemsFactura;
 	
 	
