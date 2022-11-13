@@ -16,6 +16,11 @@ import org.springframework.web.context.annotation.SessionScope;
 @SessionScope
 public class Factura implements Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 6659673172613474438L;
+
 	@Value("{factura.descripcion}")
 	private String descripcion;
 	
