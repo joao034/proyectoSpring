@@ -1,9 +1,15 @@
 package springbootform.models;
 
+import javax.validation.constraints.NotEmpty;
+
 public class Usuario {
 
+    //Validacion del lado del back
+    @NotEmpty
     private String username;
+    @NotEmpty
     private String password;
+    @NotEmpty
     private String email;
 
     public Usuario(String username, String password, String email) {
