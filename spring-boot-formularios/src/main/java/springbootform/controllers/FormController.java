@@ -1,11 +1,13 @@
 package springbootform.controllers;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.support.SessionStatus;
 import springbootform.models.Usuario;
+import springbootform.validators.UsuarioValidador;
 
 import javax.validation.Valid;
 import java.util.HashMap;
@@ -15,6 +17,9 @@ import java.util.Objects;
 @SessionAttributes("usuario")
 @Controller
 public class FormController {
+
+	@Autowired
+	private UsuarioValidador usuarioValidador;
 
 	@GetMapping("/form")
 	public String form(Model model) {
@@ -28,6 +33,8 @@ public class FormController {
 	
 	@PostMapping("/form")
 	public String procesar(@Valid Usuario usuario , BindingResult result, Model model, SessionStatus status) {
+
+		usuarioValidador.validate(usuario, result);
 
 		if(result.hasErrors()){
 			/*Map<String, String> errores = new HashMap<>();

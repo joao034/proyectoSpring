@@ -10,7 +10,7 @@
     <div>
         <label for="nombre">Nombre</label>
         <div>
-            <input type="text" id="nombre" th:field="*{nombre}" readonly>
+            <input type="text" id="nombre" th:field="*{nombre}">
         </div>
         <div th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></div>
     </div>
