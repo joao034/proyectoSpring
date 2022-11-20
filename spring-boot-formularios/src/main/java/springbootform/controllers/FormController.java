@@ -28,11 +28,11 @@ public class FormController {
 	public String procesar(@Valid Usuario usuario , BindingResult result, Model model) {
 
 		if(result.hasErrors()){
-			Map<String, String> errores = new HashMap<>();
+			/*Map<String, String> errores = new HashMap<>();
 			result.getFieldErrors().forEach( err -> {
 				errores.put(err.getField(), "El campo ".concat(err.getField().concat(" ").concat(Objects.requireNonNull(err.getDefaultMessage()))));
 			});
-			model.addAttribute("error", errores);
+			model.addAttribute("error", errores);*/
 			return "form";
 		}
 
