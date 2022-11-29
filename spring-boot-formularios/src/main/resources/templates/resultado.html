@@ -2,15 +2,18 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <title th:text="${titulo}"></title>
 </head>
 <body>
-<p th:text="${usuario.id}"></p>
-<p th:text="${usuario.nombre}"></p>
-<p th:text="${usuario.apellido}"></p>
-<p th:text="${usuario.username}"></p>
-<p th:text="${usuario.password}"></p>
-<p th:text="${usuario.email}"></p>
+<h3 th:text="${titulo}"></h3>
 
-
+<ul>
+    <li th:text="${usuario.nombre}"></li>
+    <li th:text="${usuario.apellido}"></li>
+    <li th:text="${usuario.username}"></li>
+    <li th:text="${usuario.password}"></li>
+    <li th:text="${usuario.email}"></li>
+    <li th:text="${usuario.identificador}"></li>
+</ul>
 </body>
 </html>

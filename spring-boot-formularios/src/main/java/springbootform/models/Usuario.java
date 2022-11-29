@@ -1,51 +1,36 @@
 package springbootform.models;
 
+import springbootform.validators.IdentificadorRegex;
+
+
 import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
 public class Usuario {
 
-    //Validacion del lado del back
+    //@Pattern(regexp = "[0-9]{2}[.][\\d]{3}[.][\\d]{3}[-][A-Z]{1}")
+    @IdentificadorRegex
+    private String identificador;
 
-    private String id;
-    @NotEmpty
-    @Size(min = 3, max = 15)
+    //@NotEmpty(message = "el nombre no puede ser vacio")
     private String nombre;
-    @NotEmpty
+
+    //@NotEmpty
+
     private String apellido;
-    @NotEmpty
-    @Size(min = 3, max = 8)
+
+    @NotBlank
+    @Size(min = 3, max=8)
     private String username;
+
     @NotEmpty
     private String password;
-    @NotEmpty
-    @Email
+
+
+    @Email(message = "correo con formato incorrecto")
     private String email;
-
-    public Usuario(String username, String password, String email) {
-        this.username = username;
-        this.password = password;
-        this.email = email;
-    }
-
-    public Usuario(){}
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getApellido() {
-        return apellido;
-    }
-
-    public void setApellido(String apellido) {
-        this.apellido = apellido;
-    }
 
     public String getUsername() {
         return username;
@@ -67,23 +52,32 @@ public class Usuario {
         return email;
     }
 
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
     public void setEmail(String email) {
         this.email = email;
     }
 
+    public String getNombre() {
+        return nombre;
+    }
 
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
 
+    public String getApellido() {
+        return apellido;
+    }
 
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
+    }
 
+    public String getIdentificador() {
+        return identificador;
+    }
 
-
+    public void setIdentificador(String identificador) {
+        this.identificador = identificador;
+    }
 
 }

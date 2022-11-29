@@ -11,49 +11,45 @@ import springbootform.models.Usuario;
 import springbootform.validators.UsuarioValidador;
 
 import javax.validation.Valid;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
 
-@SessionAttributes("usuario")
 @Controller
+@SessionAttributes("usuario")
 public class FormController {
 
 	@Autowired
-	private UsuarioValidador usuarioValidador;
+	private UsuarioValidador validador;
 
 	@InitBinder
 	public void initBinder(WebDataBinder binder) {
-		binder.addValidators(usuarioValidador);
+		binder.addValidators(validador);
 	}
 
 	@GetMapping("/form")
 	public String form(Model model) {
 		Usuario usuario = new Usuario();
-		usuario.setNombre("Joao");
-		usuario.setApellido("Jacome");
-		usuario.setId("1");
+		usuario.setNombre("John");
+		usuario.setApellido("Doe");
+		usuario.setIdentificador("123.456.789-K");
+		model.addAttribute("titulo", "Formulario usuarios");
 		model.addAttribute("usuario", usuario);
 		return "form";
 	}
-	
+
 	@PostMapping("/form")
-	public String procesar(@Valid Usuario usuario , BindingResult result, Model model, SessionStatus status) {
+	public String procesar(@Valid Usuario usuario, BindingResult result, Model model, SessionStatus status) {
 
-		usuarioValidador.validate(usuario, result);
+		// validador.validate(usuario, result);
 
-		if(result.hasErrors()){
-			/*Map<String, String> errores = new HashMap<>();
-			result.getFieldErrors().forEach( err -> {
-				errores.put(err.getField(), "El campo ".concat(err.getField().concat(" ").concat(Objects.requireNonNull(err.getDefaultMessage()))));
-			});
-			model.addAttribute("error", errores);*/
+		model.addAttribute("titulo", "Resultado form");
+
+		if(result.hasErrors()) {
+
 			return "form";
 		}
+
 		model.addAttribute("usuario", usuario);
-		//Limpia el objeto usuario de la sesion despues de enviar los datos
 		status.setComplete();
 		return "resultado";
 	}
-	
+
 }
